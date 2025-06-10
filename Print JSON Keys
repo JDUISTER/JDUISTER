@@ -1,0 +1,9 @@
+def print_json_keys(data, indent=0):
+    if isinstance(data, dict):
+        for key, value in data.items():
+            print('  ' * indent + f"{key}")
+            print_json_keys(value, indent + 1)
+    elif isinstance(data, list):
+        if data:
+            print('  ' * indent + f"[List of {len(data)} items]")
+            print_json_keys(data[0], indent + 1)
